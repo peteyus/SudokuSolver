@@ -30,7 +30,7 @@
                 bool foundResult;
                 do
                 {
-                    foundResult = FindSinglePossibleResults(puzzle);
+                    foundResult = FindHiddenSingles(puzzle);
                     SetCellValueForNakedSingles(puzzle);
                 } while (foundResult);
 
@@ -41,6 +41,7 @@
                 FindNakedPairs(puzzle);
 
                 // This feels like it needs one more step. TODO PRJ: Read the paper more.
+                // second paper.. xwings? swordfish? xy pairs?
 
                 SetCellValueForNakedSingles(puzzle);
 
@@ -58,7 +59,7 @@
             }
         }
 
-        private static bool FindSinglePossibleResults(Puzzle puzzle)
+        private static bool FindHiddenSingles(Puzzle puzzle)
         {
             var foundResult = false;
             for (int row = 1; row <= 9; row++)
